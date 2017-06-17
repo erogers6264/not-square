@@ -10,5 +10,7 @@ squares.forEach(function(square) {
   var red = getRandomInt(0, 256);
   var green = getRandomInt(0, 256);
   var blue = getRandomInt(0, 256);
-  square.style.background = "rgb(" + red + ", " + green + ", " + blue + ")";
-})
+  square.style.backgroundColor = "rgb(" + red + ", " +
+                                          green + ", " +
+                                          blue + ")";
+});
