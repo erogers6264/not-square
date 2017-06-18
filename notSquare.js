@@ -6,7 +6,7 @@ for (var i = squares.length - 1; i >= 0; i--) {
   colors.push(getRandomRGB());
 }
 
-var pickedColor = colors[getRandomInt(0, colors.length + 1)];
+var pickedColor = colors[getRandomInt(0, colors.length)];
 var h1 = document.querySelector('h1');
 var t = document.createTextNode(' ' + pickedColor);
 h1.appendChild(t);
@@ -36,7 +36,6 @@ squares.forEach(function(square) {
     if (square.style.backgroundColor === pickedColor) {
       alert("You're right!!")
     } else {
-      alert("WRONG!")
       square.style.backgroundColor = '#232323';
     }
   })
