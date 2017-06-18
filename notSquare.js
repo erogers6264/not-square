@@ -19,6 +19,7 @@ function getRandomInt(min, max) {
 }
 
 function getRandomRGB() {
+  // Returns a string containing a random RGB style property.
   var red = getRandomInt(0, 256);
   var green = getRandomInt(0, 256);
   var blue = getRandomInt(0, 256);
