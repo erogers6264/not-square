@@ -1,3 +1,4 @@
+
 var squares = document.querySelectorAll(".square");
 
 function getRandomInt(min, max) {
@@ -6,11 +7,16 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-squares.forEach(function(square) {
+function getRandomRGB() {
   var red = getRandomInt(0, 256);
   var green = getRandomInt(0, 256);
   var blue = getRandomInt(0, 256);
-  square.style.backgroundColor = "rgb(" + red + ", " +
-                                          green + ", " +
-                                          blue + ")";
+  var rgb = "rgb(" + red + ", " +
+                     green + ", " +
+                     blue + ")";
+  return rgb;
+}
+
+squares.forEach(function(square) {
+  square.style.backgroundColor = getRandomRGB();
 });
