@@ -10,8 +10,6 @@ var h1 = document.querySelector("h1");
 var t = document.createTextNode(" " + pickedColor);
 h1.appendChild(t);
 
-var statusDisplay = document.querySelector("#statusDisplay")
-
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -41,12 +39,12 @@ squares.forEach(function(square) {
   colorCounter++;
   square.addEventListener("click", function() {
     if (square.style.backgroundColor === pickedColor) {
-      statusDisplay.textContent = "You're Right!";
+      document.querySelector("#status").textContent = "You're Right!";
       changeColors(pickedColor);
       h1.style.backgroundColor = pickedColor;
     } else {
       square.style.backgroundColor = "#232323";
-      statusDisplay.textContent = "Try Again";
+      document.querySelector("#status").textContent = "Try Again";
     }
   })
 });
