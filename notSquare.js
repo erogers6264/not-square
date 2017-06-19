@@ -1,16 +1,16 @@
 
-var squares = document.querySelectorAll(".square");
-
 var colors = [];
+var squares = document.querySelectorAll(".square");
 for (var i = squares.length - 1; i >= 0; i--) {
   colors.push(getRandomRGB());
 }
-
 var pickedColor = colors[getRandomInt(0, colors.length)];
-var h1 = document.querySelector('h1');
-var t = document.createTextNode(' ' + pickedColor);
+
+var h1 = document.querySelector("h1");
+var t = document.createTextNode(" " + pickedColor);
 h1.appendChild(t);
 
+var statusDisplay = document.querySelector("#statusDisplay")
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -29,15 +29,24 @@ function getRandomRGB() {
   return rgb;
 }
 
+function changeColors(color) {
+  squares.forEach(function(square) {
+    square.style.backgroundColor = color;
+  })
+}
+
 var colorCounter = 0;
 squares.forEach(function(square) {
   square.style.backgroundColor = colors[colorCounter];
   colorCounter++;
-  square.addEventListener('click', function() {
+  square.addEventListener("click", function() {
     if (square.style.backgroundColor === pickedColor) {
-      alert("You're right!!")
+      statusDisplay.textContent = "You're Right!";
+      changeColors(pickedColor);
+      h1.style.backgroundColor = pickedColor;
     } else {
-      square.style.backgroundColor = '#232323';
+      square.style.backgroundColor = "#232323";
+      statusDisplay.textContent = "Try Again";
     }
   })
 });
