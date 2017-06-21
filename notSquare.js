@@ -20,8 +20,9 @@ resetButton.addEventListener('click', function () {
   }
   pickedColor = colors[getRandomInt(0, colors.length)];
 
-  //update display to show picked color
+  //update status to '' and display to show picked color
   colorDisplay.textContent = pickedColor;
+  document.querySelector("#status").textContent = "";
 
   //update the color of the h1 and each square
   h1.style.backgroundColor = '';
