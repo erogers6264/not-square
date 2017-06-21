@@ -7,8 +7,30 @@ for (var i = squares.length - 1; i >= 0; i--) {
 var pickedColor = colors[getRandomInt(0, colors.length)];
 
 var h1 = document.querySelector("h1");
-var t = document.createTextNode(" " + pickedColor);
-h1.appendChild(t);
+var colorDisplay = document.querySelector("#colorDisplay");
+colorDisplay.textContent = pickedColor;
+
+var resetButton = document.querySelector("#reset");
+resetButton.addEventListener('click', function () {
+
+  //reset the colors array
+  colors = []
+  for (var i = squares.length - 1; i >= 0; i--) {
+    colors.push(getRandomRGB());
+  }
+  pickedColor = colors[getRandomInt(0, colors.length)];
+
+  //update display to show picked color
+  colorDisplay.textContent = pickedColor;
+
+  //update the color of the h1 and each square
+  h1.style.backgroundColor = '';
+  var colorCounter = 0;
+  squares.forEach(function(square) {
+    square.style.backgroundColor = colors[colorCounter];
+    colorCounter++;
+  });
+});
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
