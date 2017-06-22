@@ -10,9 +10,10 @@ var h1 = document.querySelector("h1");
 var colorDisplay = document.querySelector("#colorDisplay");
 colorDisplay.textContent = pickedColor;
 
-var resetButton = document.querySelector("#reset");
-resetButton.addEventListener('click', function () {
+var resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener('click', function () {resetColors();});
 
+function resetColors (){
   //reset the colors array
   colors = []
   for (var i = squares.length - 1; i >= 0; i--) {
@@ -24,6 +25,7 @@ resetButton.addEventListener('click', function () {
   colorDisplay.textContent = pickedColor;
   document.querySelector("#status").textContent = "";
 
+  resetButton.textContent = "New Colors";
   //update the color of the h1 and each square
   h1.style.backgroundColor = '';
   var colorCounter = 0;
@@ -31,7 +33,7 @@ resetButton.addEventListener('click', function () {
     square.style.backgroundColor = colors[colorCounter];
     colorCounter++;
   });
-});
+}
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -65,6 +67,8 @@ squares.forEach(function(square) {
       document.querySelector("#status").textContent = "You're Right!";
       changeColors(pickedColor);
       h1.style.backgroundColor = pickedColor;
+      resetButton.textContent = "Play Again";
+      
     } else {
       square.style.backgroundColor = "#232323";
       document.querySelector("#status").textContent = "Try Again";
