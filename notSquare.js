@@ -14,10 +14,16 @@ var resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener('click', function () {resetColors();});
 
 var easyBtn = document.querySelector("#easyBtn")
-easyBtn.addEventListener("click", function(){alert("Easy clicked");})
+easyBtn.addEventListener("click", function(){
+  hardBtn.classList.remove("selected");
+  easyBtn.classList.add("selected");
+})
 
 var hardBtn = document.querySelector("#hardBtn")
-hardBtn.addEventListener("click", function(){alert("Hard clicked");})
+hardBtn.addEventListener("click", function(){
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+})
 
 function resetColors (){
   //reset the colors array
