@@ -13,6 +13,12 @@ colorDisplay.textContent = pickedColor;
 var resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener('click', function () {resetColors();});
 
+var easyBtn = document.querySelector("#easyBtn")
+easyBtn.addEventListener("click", function(){alert("Easy clicked");})
+
+var hardBtn = document.querySelector("#hardBtn")
+hardBtn.addEventListener("click", function(){alert("Hard clicked");})
+
 function resetColors (){
   //reset the colors array
   colors = []
@@ -68,7 +74,7 @@ squares.forEach(function(square) {
       changeColors(pickedColor);
       h1.style.backgroundColor = pickedColor;
       resetButton.textContent = "Play Again";
-      
+
     } else {
       square.style.backgroundColor = "#232323";
       document.querySelector("#status").textContent = "Try Again";
