@@ -1,17 +1,16 @@
-
 var colors = [];
 var squares = document.querySelectorAll(".square");
+var pickedColor = colors[getRandomInt(0, colors.length)];
+var h1 = document.querySelector("h1");
+var colorDisplay = document.querySelector("#colorDisplay");
+var resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener('click', function () {resetColors();});
+
+
+colorDisplay.textContent = pickedColor;
 for (var i = squares.length - 1; i >= 0; i--) {
   colors.push(getRandomRGB());
 }
-var pickedColor = colors[getRandomInt(0, colors.length)];
-
-var h1 = document.querySelector("h1");
-var colorDisplay = document.querySelector("#colorDisplay");
-colorDisplay.textContent = pickedColor;
-
-var resetButton = document.querySelector("#resetButton");
-resetButton.addEventListener('click', function () {resetColors();});
 
 function resetColors (){
   //reset the colors array
@@ -68,7 +67,7 @@ squares.forEach(function(square) {
       changeColors(pickedColor);
       h1.style.backgroundColor = pickedColor;
       resetButton.textContent = "Play Again";
-      
+
     } else {
       square.style.backgroundColor = "#232323";
       document.querySelector("#status").textContent = "Try Again";
