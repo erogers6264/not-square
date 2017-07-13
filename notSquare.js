@@ -6,11 +6,22 @@ var colorDisplay = document.querySelector("#colorDisplay");
 var resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener('click', function () {resetColors();});
 
-
 colorDisplay.textContent = pickedColor;
 for (var i = squares.length - 1; i >= 0; i--) {
   colors.push(getRandomRGB());
 }
+
+var easyBtn = document.querySelector("#easyBtn")
+easyBtn.addEventListener("click", function(){
+  hardBtn.classList.remove("selected");
+  easyBtn.classList.add("selected");
+})
+
+var hardBtn = document.querySelector("#hardBtn")
+hardBtn.addEventListener("click", function(){
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+})
 
 function resetColors (){
   //reset the colors array
